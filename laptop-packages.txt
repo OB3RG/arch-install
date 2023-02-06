@@ -1,0 +1,6 @@
+nvidia-dkms
+nvidia-utils
+lib32-libpulse
+ttf-liberation
+powertop
+libinput-gestures
