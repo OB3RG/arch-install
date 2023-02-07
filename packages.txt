@@ -1,3 +1,4 @@
+#Base packages
 base
 linux
 linux-firmware
@@ -6,6 +7,7 @@ man-pages
 texinfo
 intel-ucode
 
+# Base devel
 autoconf
 automake
 binutils
@@ -30,6 +32,7 @@ sed
 sudo
 which
 
+# Debugging
 lsof
 bind-tools
 mtr
@@ -43,11 +46,13 @@ whois
 iftop
 dstat
 
+# Filesystems
 e2fsprogs
 exfat-utils
 dosfstools
 f2f-tools
 
+# Networking
 nftables
 iw
 iwd
@@ -55,11 +60,15 @@ avahi
 nss-mdns
 openssh
 
+# General Tools
 cmake
 jq
 musl
 ddrescue
 
+
+
+# Desktop
 bspwm
 sxhkd
 brighnessctl
