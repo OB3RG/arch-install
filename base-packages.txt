@@ -38,7 +38,7 @@ htop
 iotop
 strace
 netcat
-tcdump
+tcpdump
 whois
 iftop
 dstat
@@ -46,7 +46,7 @@ dstat
 e2fsprogs
 exfat-utils
 dosfstools
-f2f-tools
+f2fs-tools
 
 nftables
 iw
@@ -62,7 +62,7 @@ ddrescue
 
 bspwm
 sxhkd
-brighnessctl
+brightnessctl
 rofi
 picom
 polybar
