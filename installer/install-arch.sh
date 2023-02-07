@@ -6,7 +6,7 @@ set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
 #TODO: REplace with new do spaces
-PACKAGE_LIST="https://oberg-arch.ams3.digitaloceanspaces.com/arch-packages"
+PACKAGE_LIST="https://oberg-arch.ams3.digitaloceanspaces.com/base-packages.txt"
 MIRRORLIST_URL="https://archlinux.org/mirrorlist/?country=FI&country=NO&country=SE&protocol=https&use_mirror_status=on"
 
 pacman -Sy --noconfirm pacman-contrib dialog
@@ -71,8 +71,8 @@ mount "${part_root}" /mnt
 mkdir /mnt/boot
 mount "${part_boot}" /mnt/boot
 
-curl -sL
-pacstrap /mnt $(awk '{print $1}'  PACKAGE_LIST)
+curl -sL https://oberg-arch.ams3.digitaloceanspaces.com/base-packages.txt > packages.txt
+pacstrap /mnt $(awk '{print $1}' packages.txt)
 
 genfstab -t PARTUUID /mnt >> /mnt/etc/fstab
 echo "${hostname}" > /mnt/etc/hostname
@@ -93,7 +93,7 @@ EOF
 
 echo "LANG=en_GB.UTF-8" > /mnt/etc/locale.conf
 
-arch-chroot /mnt useradd -mU -G wheel,oberg "$user"
+arch-chroot /mnt useradd -mU -G wheel "$user"
 
 echo "$user:$password" | chpasswd --root /mnt
 echo "root:$password" | chpasswd --root /mnt
